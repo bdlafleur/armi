@@ -94,11 +94,11 @@ CONF_POWER = "power"
 CONF_POWER_DENSITY = "powerDensity"
 CONF_POWER_FRACTIONS = "powerFractions"
 CONF_PROFILE = "profile"
-CONF_REALLY_SMALL_RUN = "reallySmallRun"
 CONF_REMOVE_PER_CYCLE = "removePerCycle"
+CONF_RM_EXTERNAL_FILES_BOC = "rmExternalFilesAtBOC"
+CONF_RM_EXTERNAL_FILES_EOL = "rmExternalFilesAtEOL"
 CONF_RUN_TYPE = "runType"
 CONF_SKIP_CYCLES = "skipCycles"
-CONF_SMALL_RUN = "smallRun"
 CONF_SORT_REACTOR = "sortReactor"
 CONF_START_CYCLE = "startCycle"
 CONF_START_NODE = "startNode"
@@ -671,7 +671,7 @@ def defineSettings() -> List[setting.Setting]:
             schema=vol.All(vol.Coerce(int), vol.Range(min=0)),
         ),
         setting.Setting(
-            CONF_SMALL_RUN,
+            CONF_RM_EXTERNAL_FILES_EOL,
             default=False,
             label="Clean Up Files at EOL",
             description="Clean up intermediate files after the run completes (EOL)",
@@ -683,7 +683,7 @@ def defineSettings() -> List[setting.Setting]:
             description="Deprecation Warning! This setting will be remove by 2024.",
         ),
         setting.Setting(
-            CONF_REALLY_SMALL_RUN,
+            CONF_RM_EXTERNAL_FILES_BOC,
             default=False,
             label="Clean Up Files at BOC",
             description="Clean up files at the beginning of each cycle (BOC)",
